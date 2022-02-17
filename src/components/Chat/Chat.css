@@ -1,0 +1,18 @@
+.chat-container {
+  color: white;
+}
+
+.chat {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  border: 1px solid red;
+}
+
+.chat-message {
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
