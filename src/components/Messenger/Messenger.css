@@ -26,9 +26,14 @@
   font-weight: bold;
 }
 
+.messenger-header > a {
+  text-decoration: none;
+}
+
 .messenger-header-close {
   font-size: 0.8rem;
   font-weight: bold;
+  color: white;
 }
 
 .messenger-messages {

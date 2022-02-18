@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Chat.css";
 
 import Messenger from "../Messenger/Messenger";
@@ -13,9 +13,7 @@ function Chat() {
         <div className="chat-message">
           <h2>Real-Time Chatting Application.</h2>
           <p>Talk to yourself or with another person!</p>
-          <p>
-            Created using React and <div className=""></div>
-          </p>
+          <p>Created using React, React-Router-DOM, Express.js and Socket.io</p>
         </div>
       </div>
     </div>
