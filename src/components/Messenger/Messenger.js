@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 
 function Messenger() {
+  const connect = process.env.URL || "http://localhost:5000";
   const [room, setRoom] = useState("");
   const [chatterState, setChatterState] = useState({ name: "", message: "" });
   const [chat, setChat] = useState([]);
@@ -23,7 +24,7 @@ function Messenger() {
   }, []);
 
   useEffect(() => {
-    socketRef.current = io.connect("http://localhost:5000");
+    socketRef.current = io.connect(connect);
     socketRef.current.on("message", ({ name, message }) => {
       setChat([...chat, { name, message }]);
     });
