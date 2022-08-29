@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 
 function Messenger() {
-  const connect = process.env.URL || "http://localhost:5000";
+  const connect = "https://chattie-xelyfer.herokuapp.com";
   const [room, setRoom] = useState("");
   const [chatterState, setChatterState] = useState({ name: "", message: "" });
   const [chat, setChat] = useState([]);
