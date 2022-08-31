@@ -3,6 +3,7 @@
   align-items: center;
   justify-content: center;
   height: 100vh;
+  padding: 1rem;
 }
 
 .home {
@@ -50,4 +51,11 @@
   border: none;
   border-radius: 5px;
   color: white;
+}
+
+
+@media only screen and (max-width:400px){
+  .home > h1 {
+    font-size: 2rem;
+  }
 }

@@ -1,5 +1,9 @@
 .messenger-container {
-  width: 500px;
+  padding: 1rem;
+}
+
+.messenger{
+  width: min(90vw,500px);
 }
 
 .messenger-header {
@@ -37,7 +41,7 @@
 }
 
 .messenger-messages {
-  min-height: 400px;
+  height:min(50vw,500px);
   background-color: white;
   color: black;
   padding: 1rem;
@@ -50,11 +54,10 @@
 }
 
 .messenger-input > input {
-  height: 80px;
+  width: 100%;
 }
 
 .messenger-input > input[type="text"] {
-  height: 80px;
   flex-grow: 1;
   border: none;
   padding-left: 2rem;
@@ -70,7 +73,8 @@
 }
 
 .messenger-input > input[type="submit"] {
-  height: 80px;
+  height:min(10vw,80px);
+  width: 100%;
   color: white;
   padding: 0 1rem;
   border: none;
