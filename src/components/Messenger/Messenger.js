@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 
 function Messenger() {
-  const connect = "https://chattie-xelyfer.herokuapp.com";
   const [room, setRoom] = useState("");
   const [chatterState, setChatterState] = useState({ name: "", message: "" });
   const [chat, setChat] = useState([]);
@@ -21,14 +20,25 @@ function Messenger() {
 
     setChatterState({ name: qName, message: "" });
     setRoom(qRoom);
+
+    const connect = "https://chattie-server-xelyfer.herokuapp.com/";
+    // const connect = "http://localhost:5000";
+    socketRef.current = io.connect(connect, {
+      withCredentials: true,
+      extraHeaders: {
+        "my-custom-header": "secret-header",
+      },
+    });
+
+    socketRef.current.emit("join", { qRoom });
+
+    return () => socketRef.current.disconnect();
   }, []);
 
   useEffect(() => {
-    socketRef.current = io.connect(connect);
     socketRef.current.on("message", ({ name, message }) => {
       setChat([...chat, { name, message }]);
     });
-    return () => socketRef.current.disconnect();
   }, [chat]);
 
   function handleSubmit(e) {
@@ -40,7 +50,9 @@ function Messenger() {
 
     const { name, message } = chatterState;
 
-    socketRef.current.emit("message", { name, message });
+    console.log(`Name: ` + name);
+    console.log(`Message: ` + message);
+    socketRef.current.emit("message", { name, message, room });
     setChatterState({ name, message: "" });
   }
 
