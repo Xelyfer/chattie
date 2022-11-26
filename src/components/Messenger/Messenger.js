@@ -21,7 +21,7 @@ function Messenger() {
     setChatterState({ name: qName, message: "" });
     setRoom(qRoom);
 
-    const connect = "https://chattie-server-xelyfer.herokuapp.com/";
+    const connect = "https://xelyfer-chattie-server.onrender.com";
     // const connect = "http://localhost:5000";
     socketRef.current = io.connect(connect, {
       withCredentials: true,
